@@ -1,0 +1,27 @@
+/:
+  controller: Global
+  action: Default
+
+/home:
+  controller: Home
+  action: index
+/home/list:
+  controller: Home
+  action: list
+
+/login:
+  controller: Security
+  action: login
+
+/se-connecter:
+  controller: Security
+  action: login
+
+/logout:
+  controller: Security
+  action: logout
+
+/list-des-utilisateurs:
+  controller: Security
+  action: listofusers
+  roles: admin
