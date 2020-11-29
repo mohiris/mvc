@@ -1,9 +1,7 @@
 <?php
-
-
 namespace Core;
-use Core\Application;
-class Template
+
+class SliverEngine
 {
 
     public function renderView($view, $data = []){

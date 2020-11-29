@@ -1,0 +1,7 @@
+/:
+  controller: DefaultController
+  method: index
+/article/show:
+  controller: ArticleController
+  method: show
+  params: id

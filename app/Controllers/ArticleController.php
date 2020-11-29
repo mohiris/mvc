@@ -3,13 +3,15 @@
 namespace Controller;
 use Core\Controller;
 
-class HomeController extends Controller
+class ArticleController extends Controller
 {
     public function index(){
+        echo "index";die;
         $this->render('home.php');
     }
 
-    public function list(){
+    public function show(){
+
         $eleve = [
             'Antoine',
             'Calvine',
