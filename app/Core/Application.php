@@ -2,6 +2,7 @@
 namespace Core;
 use Core\Router;
 use Core\Request;
+use Core\DB;
 class Application
 {
 
@@ -19,8 +20,10 @@ class Application
         $router->resolve($path);
     }
 
-    public function connect($dbConfig){
-        return $dbConfig;
+    public function dbConnect($config){
+        $db = new DB();
+        $db->connect($config);
+     
     }
 
 }

@@ -11,4 +11,11 @@ class Controller
         echo $template->renderView($view, $data);
     }
 
+    public function model($model){
+
+        include_once dirname(__DIR__).DIRECTORY_SEPARATOR."Models".DIRECTORY_SEPARATOR.$model.".php";
+        
+        return new $model();
+    }
+
 }
