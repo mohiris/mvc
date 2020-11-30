@@ -37,10 +37,10 @@ class Router
 
                 $controller = new $class();
 
-                $controller->$method();die;
-
                 if(method_exists($controller, $method)){
-                    $controller->$method();
+
+                    (!empty($params) && $this->methodHasParamters($controller, $method)) ? \call_user_func_array($method, $params) : $controller->$method();
+
                 }
             }
 
@@ -71,6 +71,15 @@ class Router
         if(array_key_exists($path, $this->routes)){
             return $path;
         }
+
+    }
+
+    protected function methodHasParamters($controller, $method){
+
+        $reflexion  = new \ReflectionMethod($controller, $method);
+        $params = $reflexion->getParameters();
+
+        return !empty($params) ? true : false;
 
     }
 

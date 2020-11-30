@@ -10,7 +10,7 @@ class ArticleController extends Controller
         $this->render('home.php');
     }
 
-    public function show(){
+    public function show($method = null){
 
         $eleve = [
             'Antoine',
