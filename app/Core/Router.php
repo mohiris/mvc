@@ -2,6 +2,7 @@
 namespace Core;
 use Core\Exception\Exception;
 use Core\Request;
+use Core\Response;
 use Core\Application;
 class Router
 {
@@ -49,11 +50,21 @@ class Router
 
     public function getRoute($path){
 
-        if(array_key_exists($path, $this->routes)){
-            return $this->routes[$path];
+        try{
+
+            if(array_key_exists($path, $this->routes)){
+                return $this->routes[$path];
+            }else{
+
+                $response = new Response();
+                $response->setStatusCode(404);
+                throw new Exception($response->getStatusCode() . " - route doesnt exist");
+            }
+    
+        }catch(Exception $e){
+            echo $e->getMessage();
         }
 
-        return null;
     }
 
     public function getPath($controller, $method = ""){
